@@ -1,36 +1,37 @@
+import * as TypeAction from '../store/actions'
 const initialState = {
     counter:20,
     results:[]
 }
 const reducer = (state = initialState, action) =>{
     switch(action.type){
-        case 'INCREMENT':
+        case TypeAction.INCREMENT:
             return{
                 ...state,
                 counter: state.counter + 1
             }
-        case 'DINCREMENT':
+        case TypeAction.DINCREMENT:
             return{
                 ...state,
                 counter: state.counter - 1
             }
 
-        case 'SUBSTRACTION':
+        case TypeAction.SUBSTRACTION:
             return{
                 ...state,
                 counter: state.counter - action.val
             }
-        case 'ADDITION':
+        case TypeAction.ADDITION:
             return{
                 ...state,
                 counter: state.counter + action.val
             }
-        case 'STORE_RESULT':
+        case TypeAction.STORE_RESULT:
             return {
                 ...state,
                 results: state.results.concat({id:new Date(), value:state.counter})
             }
-            case 'DELETE_RESULT':
+            case TypeAction.DELETE_RESULT:
                 return {
                     ...state,
                     results: state.results.filter(res => {
